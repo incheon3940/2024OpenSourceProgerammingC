@@ -1,0 +1,12 @@
+4주차 수업내용
+- 기초 리눅스 명령어
+  pwd
+- 기초 깃 명령어
+  fetch, pull
+- Go 환경 셋업
+컴파일러 설치(https://go.dev/dl)
+VSC설치(https://code.visualstudio.com/)
+확장 플로그인 설치, Go도구, 업데이트
+go mod init sample
+cd sample
+go run main.go
