@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	fmt.Print("Input your score : ")
+	fmt.Print("점수 입력 : ")
 	in := bufio.NewReader(os.Stdin)
 	i, err := in.ReadString('\n')
 
@@ -18,12 +18,13 @@ func main() {
 		log.Fatal(err)
 	}
 	i = strings.TrimSpace(i)
-	score, _ := strconv.ParseInt(i, 16, 32)
-	if score >= 60 {
-		fmt.Println("A")
-		fmt.Println("%d \n", score)
+	score, _ := strconv.ParseInt(i, 10, 32)
+
+	var grade string
+	if score >= 90 {
+		grade = "A"
 	} else {
-		fmt.Println("BCDF")
-		fmt.Println("%d \n", score)
+		grade = "BCDF"
 	}
+	fmt.Printf("%d점은 %s등급 입니다.", score, grade)
 }
