@@ -25,21 +25,24 @@ func main() {
 	}
 
 	var isPrime bool = true
-	// bug fix
-	if n <= 1 { // A prime number is a natural number grater than 1 that has only
+	if n <= 1 {
+		isPrime = false
+	} else if n == 2 {
+		isPrime = true
+	} else if n%2 == 0 { // All even numbers except 2 are not prime
 		isPrime = false
 	} else {
-		j := 2
+		j := 3
 		for j <= int(math.Sqrt(float64(n))) {
 			if n%j == 0 {
-				isPrime = false // 더하기 연산자
-				break           // performace up
+				isPrime = false
+				break
 			}
-			fmt.Printf("%d ", j) // cheak j loop
-			j++
+			fmt.Printf("%d ", j)
+			j += 2
 		}
 	}
-	if isPrime { // == 비교 연산자
+	if isPrime {
 		fmt.Printf("%d is prime number", n)
 	} else {
 		fmt.Printf("%d is NOT Prime number", n)
