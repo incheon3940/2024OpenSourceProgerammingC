@@ -31,8 +31,11 @@ func main() {
 		for j < n {
 			if n%j == 0 {
 				isPrime = false // 더하기 연산자
+				break
 			}
+			fmt.Printf("%d ", j) // cheak j loop
 			j++
+
 		}
 	}
 	if isPrime { // == 비교 연산자
