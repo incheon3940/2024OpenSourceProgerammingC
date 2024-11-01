@@ -4,13 +4,15 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	fmt.Print("정수입력 : ")
+	// fmt.Printf("%f \n", math.Sqrt(16.0))
+	fmt.Print("Input Number : ")
 	in := bufio.NewReader(os.Stdin)
 	i, err := in.ReadString('\n')
 	if err != nil {
@@ -28,14 +30,13 @@ func main() {
 		isPrime = false
 	} else {
 		j := 2
-		for j < n {
+		for j <= int(math.Sqrt(float64(n))) {
 			if n%j == 0 {
 				isPrime = false // 더하기 연산자
-				break
+				break           // performace up
 			}
 			fmt.Printf("%d ", j) // cheak j loop
 			j++
-
 		}
 	}
 	if isPrime { // == 비교 연산자
