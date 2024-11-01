@@ -9,8 +9,32 @@ import (
 	"strings"
 )
 
+func isPrime(n int) bool {
+	// var isPrime bool = true
+	if n <= 1 {
+		// isPrime = false
+		return false
+	} else if n == 2 {
+		// isPrime = true
+	} else if n%2 == 0 {
+		//isPrime = false
+		return false
+	} else {
+		j := 3
+		for j*j <= n {
+			if n%j == 0 {
+				// isPrime = false
+				// break
+				return false
+			}
+			fmt.Printf("%d ", j)
+			j += 2
+		}
+	}
+	return true
+}
+
 func main() {
-	// fmt.Printf("%f \n", math.Sqrt(16.0))
 	fmt.Print("Input Number : ")
 	in := bufio.NewReader(os.Stdin)
 	i, err := in.ReadString('\n')
@@ -23,26 +47,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var isPrime bool = true
-	if n <= 1 {
-		isPrime = false
-	} else if n == 2 {
-		isPrime = true
-	} else if n%2 == 0 { // All even numbers except 2 are not prime
-		isPrime = false
-	} else {
-		j := 3
-		//for j <= int(math.Sqrt(float64(n))) {
-		for j*j <= n {
-			if n%j == 0 {
-				isPrime = false
-				break
-			}
-			fmt.Printf("%d ", j)
-			j += 2
-		}
-	}
-	if isPrime {
+	if isPrime(n) {
 		fmt.Printf("%d is prime number", n)
 	} else {
 		fmt.Printf("%d is NOT Prime number", n)
